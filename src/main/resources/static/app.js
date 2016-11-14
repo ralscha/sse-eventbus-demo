@@ -74,7 +74,11 @@ window.onbeforeunload = () => {
 }
 
 eventSource = new EventSource(`/register/${uuid}`);
-eventSource.addEventListener('message', response => handleResponse(JSON.parse(response.data)), false);
+eventSource.addEventListener('message', response => {
+	for (let line of response.data.split('\n')) {
+		handleResponse(JSON.parse(line));
+	}
+}, false);
 
 function handleResponse(data) {
 	for (let i = 0; i < 5; i++) {
