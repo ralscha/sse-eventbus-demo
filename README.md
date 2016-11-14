@@ -12,6 +12,7 @@ to visualize the data in the browser.
 	cd sse-eventbus-demo
 	./mvnw spring-boot:run
 ```
+Open the url ```http://localhost:8080``` in a browser
 
 
 #### License
