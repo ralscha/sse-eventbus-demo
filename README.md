@@ -3,7 +3,7 @@ A simple Spring Boot application that demonstrates the usage of
 the [sse-eventbus](https://github.com/ralscha/sse-eventbus) library.
 
 The application uses the [ECharts](https://github.com/ecomfe/echarts) library
-to visualize the data in the browser.
+to visualise the data in the browser.
 
 #### Start the application
 

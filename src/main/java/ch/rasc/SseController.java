@@ -20,7 +20,6 @@ public class SseController {
 	@GetMapping("/register/{id}")
 	public SseEmitter register(@PathVariable("id") String id) {
 		return this.eventBus.createSseEmitter(id, SseEvent.DEFAULT_EVENT);
-
 	}
 
 }
