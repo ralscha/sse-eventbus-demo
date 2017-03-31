@@ -5,7 +5,7 @@
 
 	<groupId>ch.rasc</groupId>
 	<artifactId>sse-eventbus-demo</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>sse-eventbus-demo</name>
@@ -79,7 +79,7 @@
 	    <dependency>
 	        <groupId>ch.rasc</groupId>
 	        <artifactId>sse-eventbus</artifactId>
-	        <version>1.0.0</version>
+	        <version>1.0.1</version>
 	    </dependency>
 		
 	</dependencies>
