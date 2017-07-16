@@ -21,10 +21,11 @@ public class SseController {
 	@GetMapping("/register/{id}")
 	public SseEmitter register(@PathVariable("id") String id,
 			@RequestHeader(value = "User-Agent") String userAgent) {
-		if (userAgent.toLowerCase().contains("edge/")) {
-			//use long polling instead of streaming
-			//create an emitter that closes the connection after sending each message
-			//this is a workaround for the Microsoft Edge
+
+		if (userAgent.contains("Edge/")) {
+			// Use long polling instead of streaming
+			// Create an emitter that closes the connection after sending each message
+			// this is a workaround for the Microsoft Edge browser
 			return this.eventBus.createSseEmitter(id, 180_000L, false, true,
 					SseEvent.DEFAULT_EVENT);
 		}
