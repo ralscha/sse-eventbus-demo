@@ -29,6 +29,7 @@ public class SseController {
 			return this.eventBus.createSseEmitter(id, 180_000L, false, true,
 					SseEvent.DEFAULT_EVENT);
 		}
+
 		return this.eventBus.createSseEmitter(id, SseEvent.DEFAULT_EVENT);
 	}
 
