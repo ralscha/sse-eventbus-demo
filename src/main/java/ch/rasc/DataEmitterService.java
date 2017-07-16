@@ -22,7 +22,7 @@ public class DataEmitterService {
 		this.eventPublisher = eventPublisher;
 	}
 
-	@Scheduled(initialDelay = 2000, fixedRate = 50)
+	@Scheduled(initialDelay = 2000, fixedRate = 5_000)
 	public void sendData() {
 		StringBuilder sb = new StringBuilder("[");
 		for (int i = 0; i < 5; i++) {
