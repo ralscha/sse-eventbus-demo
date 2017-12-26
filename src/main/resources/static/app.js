@@ -54,11 +54,12 @@ function getChartOption(name, threshold) {
 	};
 }
 
+var me = this;
 var names = ['s1', 's2', 's3', 's4', 's5'];
 var threshold = [0.1, 0.2, 0.7, 0.5, 0.9];
 var gauges = [];
-
-for (let i = 0; i < names.length; i++) {
+var i;
+for (i = 0; i < names.length; i++) {
 	var chart = echarts.init(document.getElementById('chart'+(i+1)));
 	chart.setOption(getChartOption(names[i], threshold[i]));
 	gauges.push(chart);
@@ -67,21 +68,24 @@ for (let i = 0; i < names.length; i++) {
 var uuid = uuid.v4();
 var eventSource;
 
-window.onbeforeunload = () => {
-  if (eventSource) {
-    eventSource.close();
+window.onbeforeunload = function() {
+  if (me.eventSource) {
+    me.eventSource.close();
   }
 }
 
-eventSource = new EventSource(`/register/${uuid}`);
-eventSource.addEventListener('message', response => {
-	for (let line of response.data.split('\n')) {
-		handleResponse(JSON.parse(line));
+eventSource = new EventSource('/register/' + uuid);
+eventSource.addEventListener('message', function(response) {
+    var line;
+    var splitted = response.data.split('\n');
+	for (line = 0; line < splitted.length; line++) {
+		me.handleResponse(JSON.parse(splitted[line]));
 	}
 }, false);
 
 function handleResponse(data) {
-	for (let i = 0; i < 5; i++) {
+    var i;
+	for (i = 0; i < 5; i++) {
 		gauges[i].setOption({
 			series: {
 				data: [ {
