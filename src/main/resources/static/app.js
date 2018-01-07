@@ -83,6 +83,14 @@ eventSource.addEventListener('message', function(response) {
 	}
 }, false);
 
+eventSource.onerror = function() {
+	console.log("Error occurred");
+};
+
+eventSource.onopen = function() {
+  console.log("Connection to server opened");
+};
+
 function handleResponse(data) {
     var i;
 	for (i = 0; i < 5; i++) {
