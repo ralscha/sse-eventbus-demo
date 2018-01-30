@@ -1,4 +1,4 @@
-package ch.rasc;
+package ch.rasc.eventbus.demo;
 
 import javax.servlet.http.HttpServletResponse;
 

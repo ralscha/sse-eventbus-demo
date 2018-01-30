@@ -1,4 +1,4 @@
-package ch.rasc;
+package ch.rasc.eventbus.demo;
 
 import java.util.Random;
 
@@ -14,7 +14,7 @@ public class DataEmitterService {
 	private final ApplicationEventPublisher eventPublisher;
 
 	// OR: private final ApplicationContext ctx;
-	// this class implements the ApplicationEventPublisher interface
+	// this bean implements the ApplicationEventPublisher interface
 
 	private final static Random random = new Random();
 
