@@ -24,7 +24,7 @@ class ResourceConfig implements WebMvcConfigurer {
 			String userDir = System.getProperty("user.dir");
 			registry.addResourceHandler("/**")
 					.addResourceLocations(
-							Paths.get(userDir, "client2/dist").toUri().toString())
+							Paths.get(userDir, "client/dist").toUri().toString())
 					.setCachePeriod(0);
 		}
 		else {
