@@ -10,14 +10,11 @@ to visualise the data in the browser.
 ```
 git clone https://github.com/ralscha/sse-eventbus-demo.git
 cd sse-eventbus-demo
-./mvnw spring-boot:run
-```
-Windows:
-```
-.\mvnw.cmd spring-boot:run
+./mvnw package  (Windows: .\mvnw.cmd package)
+java -jar target/sse-eventbus-demo.jar
 ```
 
-Open the url ```http://localhost:8080``` in a browser
+Open the URL ```http://localhost:80``` in a browser
 
 
 #### License
