@@ -12,6 +12,11 @@ git clone https://github.com/ralscha/sse-eventbus-demo.git
 cd sse-eventbus-demo
 ./mvnw spring-boot:run
 ```
+Windows:
+```
+.\mvnw.cmd spring-boot:run
+```
+
 Open the url ```http://localhost:8080``` in a browser
 
 
