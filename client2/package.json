@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "babel-preset-env": "1.6.1",
-    "parcel-bundler": "1.5.1",
+    "parcel-bundler": "1.6.2",
     "parcel-plugin-compress": "1.0.2",
     "shx": "0.2.2"
   },
