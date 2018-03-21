@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "core-js": "2.5.3",
-    "echarts": "4.0.2",
+    "echarts": "4.0.4",
     "event-source-polyfill": "0.0.12",
     "uuid": "3.2.1"
   }
