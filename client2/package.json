@@ -5,8 +5,8 @@
   "devDependencies": {
     "babel-preset-env": "1.7.0",
     "parcel-bundler": "1.9.3",
-    "parcel-plugin-compress": "1.0.3",
-    "shx": "0.3.0"
+    "parcel-plugin-compress": "1.0.4",
+    "shx": "0.3.1"
   },
   "scripts": {
     "prebuild": "shx rm -rf dist/*",
@@ -15,6 +15,6 @@
   },
   "dependencies": {
     "echarts": "4.1.0",
-    "uuid": "3.2.1"
+    "uuid": "3.3.2"
   }
 }
