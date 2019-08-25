@@ -31,6 +31,11 @@ public class DataEmitterService {
 		}
 		sb.replace(sb.length() - 1, sb.length(), "]");
 		this.eventPublisher.publishEvent(SseEvent.ofData(sb.toString()));
+		
+		Dto dto = new Dto();
+		dto.setI(10);
+		dto.setS("test");
+		this.eventPublisher.publishEvent(SseEvent.of("dto", dto));
 	}
 
 }

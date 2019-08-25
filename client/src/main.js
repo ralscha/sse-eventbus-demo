@@ -1,6 +1,6 @@
 import App from './app';
-import "core-js/modules/es6.promise";
-import "core-js/modules/es6.array.iterator";
+import "core-js/modules/es.promise";
+import "core-js/modules/es.array.iterator";
 
 if (browserSupportsAllFeatures()) {
     new App().start();

@@ -4,7 +4,7 @@ import uuidv4 from 'uuid/v4';
 
 export default class App {
     constructor() {
-        this.names = ['s1', 's2', 's3', 's4', 's5'];        
+        this.names = ['s1', 's2', 's3', 's4', 's5'];
         this.gauges = [];
 
         const threshold = [0.1, 0.2, 0.7, 0.5, 0.9];
@@ -17,7 +17,7 @@ export default class App {
     }
 
     start() {
-        this.eventSource = new EventSource(`register/${uuidv4()}`);
+        this.eventSource = new EventSource(`http://localhost:8080/ssespring/register/${uuidv4()}`);
         this.eventSource.addEventListener('message', this.onMessage.bind(this), false);
         this.eventSource.onerror = this.onError;
         this.eventSource.onopen = this.onOpen;

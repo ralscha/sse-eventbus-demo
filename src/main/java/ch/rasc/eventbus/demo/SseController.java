@@ -22,7 +22,7 @@ public class SseController {
 	@GetMapping("/register/{id}")
 	public SseEmitter register(@PathVariable("id") String id, HttpServletResponse response) {
 		response.setHeader("Cache-Control", "no-store");
-		return this.eventBus.createSseEmitter(id, 30_000L, SseEvent.DEFAULT_EVENT);
+		return this.eventBus.createSseEmitter(id, 30_000L, SseEvent.DEFAULT_EVENT, "dto");
 	}
 
 }

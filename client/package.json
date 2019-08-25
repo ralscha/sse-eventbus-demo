@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "parcel-bundler": "1.11.0",
-    "parcel-plugin-compress": "1.0.6",
+    "parcel-bundler": "1.12.3",
+    "parcel-plugin-compress": "1.0.10",
     "shx": "0.3.2"
   },
   "scripts": {
@@ -13,9 +13,9 @@
     "watch": "parcel watch src/index.html --public-url ./"
   },
   "dependencies": {
-    "core-js": "2.6.2",
-    "echarts": "4.2.0-rc.2",
+    "core-js": "3.2.1",
+    "echarts": "4.2.1",
     "event-source-polyfill": "1.0.8",
-    "uuid": "3.3.2"
+    "uuid": "3.3.3"
   }
 }

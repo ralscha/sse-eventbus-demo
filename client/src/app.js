@@ -19,6 +19,7 @@ export default class App {
     start() {
         this.eventSource = new EventSource(`register/${uuidv4()}`);
         this.eventSource.addEventListener('message', this.onMessage.bind(this), false);
+        this.eventSource.addEventListener('dto', m => console.log(m));
         this.eventSource.onerror = this.onError;
         this.eventSource.onopen = this.onOpen;
     }
