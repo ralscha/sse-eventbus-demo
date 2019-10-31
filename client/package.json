@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "parcel-bundler": "1.12.3",
-    "parcel-plugin-compress": "1.0.10",
+    "parcel-bundler": "1.12.4",
+    "parcel-plugin-compress": "1.0.11",
     "shx": "0.3.2"
   },
   "scripts": {
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "core-js": "3.2.1",
-    "echarts": "4.3.0",
-    "event-source-polyfill": "1.0.8",
+    "echarts": "4.4.0",
+    "event-source-polyfill": "1.0.9",
     "uuid": "3.3.3"
   }
 }
