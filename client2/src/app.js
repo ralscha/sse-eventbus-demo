@@ -17,7 +17,7 @@ export default class App {
     }
 
     start() {
-        this.eventSource = new EventSource(`http://localhost:8080/ssespring/register/${uuidv4()}`);
+        this.eventSource = new EventSource(`http://localhost:8080/register/${uuidv4()}`);
         this.eventSource.addEventListener('message', this.onMessage.bind(this), false);
         this.eventSource.onerror = this.onError;
         this.eventSource.onopen = this.onOpen;
