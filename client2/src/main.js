@@ -3,7 +3,7 @@ import App from './app';
 if (browserSupportsAllFeatures()) {
     new App().start();
 } else {
-    loadScript('https://cdn.polyfill.io/v2/polyfill.min.js?features=EventSource,Symbol,Array.prototype.@@iterator,Array.prototype.entries', function () {
+    loadScript('https://cdn.polyfill.io/v3/polyfill.min.js?features=EventSource,Symbol,Array.prototype.@@iterator,Array.prototype.entries', function () {
         new App().start();
     });
 }

@@ -1,6 +1,6 @@
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/gauge';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class App {
     constructor() {
