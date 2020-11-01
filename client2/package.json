@@ -5,7 +5,7 @@
   "devDependencies": {
     "parcel-bundler": "1.12.4",
     "parcel-plugin-compress": "2.0.2",
-    "shx": "0.3.2"
+    "shx": "0.3.3"
   },
   "scripts": {
     "prebuild": "shx rm -rf dist/*",
@@ -15,6 +15,6 @@
   },
   "dependencies": {
     "echarts": "4.9.0",
-    "uuid": "8.3.0"
+    "uuid": "8.3.1"
   }
 }
