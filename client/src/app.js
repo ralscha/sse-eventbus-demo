@@ -1,5 +1,8 @@
-import echarts from 'echarts/lib/echarts';
-import 'echarts/lib/chart/gauge';
+import * as echarts from 'echarts/core';
+import { GaugeChart } from 'echarts/charts';
+import { CanvasRenderer } from 'echarts/renderers';
+echarts.use([GaugeChart, CanvasRenderer]);
+
 import { v4 as uuidv4 } from 'uuid';
 
 export default class App {
