@@ -14,7 +14,7 @@
     "watch": "parcel watch src/index.html --public-url ./"
   },
   "dependencies": {
-    "echarts": "5.1.1",
+    "echarts": "5.1.2",
     "uuid": "8.3.2"
   }
 }
