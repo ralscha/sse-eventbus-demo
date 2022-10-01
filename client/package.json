@@ -16,6 +16,6 @@
     "core-js": "3.19.3",
     "echarts": "5.2.2",
     "event-source-polyfill": "1.0.25",
-    "uuid": "8.3.2"
+    "uuid": "9.0.0"
   }
 }
