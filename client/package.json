@@ -13,9 +13,9 @@
     "watch": "parcel watch src/index.html --public-url ./"
   },
   "dependencies": {
-    "core-js": "3.19.3",
-    "echarts": "5.2.2",
-    "event-source-polyfill": "1.0.25",
+    "core-js": "3.26.1",
+    "echarts": "5.4.0",
+    "event-source-polyfill": "1.0.31",
     "uuid": "9.0.0"
   }
 }
