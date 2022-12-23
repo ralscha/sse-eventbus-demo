@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "buffer": "5.7.1",
-    "parcel": "2.8.0",
+    "parcel": "2.8.2",
     "shx": "0.3.4"
   },
   "scripts": {
@@ -14,7 +14,7 @@
     "watch": "parcel watch src/index.html"
   },
   "dependencies": {
-    "echarts": "5.4.0",
+    "echarts": "5.4.1",
     "uuid": "9.0.0"
   }
 }
