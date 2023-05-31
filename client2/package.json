@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "buffer": "5.7.1",
-    "parcel": "2.8.3",
+    "parcel": "2.9.1",
     "shx": "0.3.4"
   },
   "scripts": {
