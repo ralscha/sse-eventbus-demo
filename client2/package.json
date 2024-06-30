@@ -14,7 +14,7 @@
     "watch": "parcel watch src/index.html"
   },
   "dependencies": {
-    "echarts": "5.5.0",
-    "uuid": "9.0.1"
+    "echarts": "5.5.1",
+    "uuid": "10.0.0"
   }
 }
