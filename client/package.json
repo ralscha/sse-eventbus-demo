@@ -3,20 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "buffer": "6.0.3",
-    "parcel": "2.12.0",
-    "shx": "0.3.4"
+    "core-js": "3.37.1",
+    "echarts": "5.5.1",
+    "event-source-polyfill": "1.0.31",
+    "uuid": "11.0.3"
   },
   "scripts": {
+    "build": "parcel build src/index.html",
     "prebuild": "shx rm -rf dist/*",
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
     "watch": "parcel watch src/index.html"
   },
   "dependencies": {
     "core-js": "3.37.1",
     "echarts": "5.5.1",
     "event-source-polyfill": "1.0.31",
-    "uuid": "10.0.0"
+    "uuid": "11.0.3"
   }
 }
