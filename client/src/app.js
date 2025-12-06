@@ -3,7 +3,7 @@ import { GaugeChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 echarts.use([GaugeChart, CanvasRenderer]);
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid/dist';
 
 export default class App {
     constructor() {

@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "core-js": "3.37.1",
-    "echarts": "5.6.0",
+    "core-js": "3.47.0",
+    "echarts": "6.0.0",
     "event-source-polyfill": "1.0.31",
-    "uuid": "11.1.0"
+    "uuid": "13.0.0"
+  },
+  "devDependencies": {
+    "buffer": "6.0.3",
+    "parcel": "2.16.1",
+    "shx": "0.4.0"
   },
   "scripts": {
     "build": "parcel build src/index.html",
