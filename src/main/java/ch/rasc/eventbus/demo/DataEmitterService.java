@@ -11,6 +11,10 @@ import ch.rasc.sse.eventbus.SseEvent;
 @Service
 public class DataEmitterService {
 
+	public static record Dto(int i, String s) {
+	}
+
+
 	private final ApplicationEventPublisher eventPublisher;
 
 	// OR: private final ApplicationContext ctx;
@@ -32,9 +36,7 @@ public class DataEmitterService {
 		sb.replace(sb.length() - 1, sb.length(), "]");
 		this.eventPublisher.publishEvent(SseEvent.ofData(sb.toString()));
 		
-		Dto dto = new Dto();
-		dto.setI(10);
-		dto.setS("test");
+		Dto dto = new Dto(10, "test");
 		this.eventPublisher.publishEvent(SseEvent.of("dto", dto));
 	}
 
