@@ -1,0 +1,43 @@
+version: '3'
+
+vars:
+  MVNW: '{{if eq OS "windows"}}cmd /c mvnw.cmd{{else}}./mvnw{{end}}'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - cmd: task --list
+    silent: true
+
+  demo:
+    desc: Run client and server in development mode
+    deps:
+      - client
+      - server
+
+  client:
+    desc: Start the Vite dev server on port 5173
+    dir: client
+    cmds:
+      - task: client-install
+      - cmd: npm run dev -- --host
+
+  client-build:
+    desc: Build the frontend into src/main/resources/static
+    dir: client
+    cmds:
+      - task: client-install
+      - cmd: npm run build
+
+  client-install:
+    desc: Install frontend dependencies
+    dir: client
+    cmds:
+      - cmd: npm install
+
+  server:
+    desc: Run the backend in development mode on port 8080
+    cmds:
+      - '{{.MVNW}} spring-boot:run -Dspring-boot.run.profiles=development'
+

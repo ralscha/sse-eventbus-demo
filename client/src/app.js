@@ -3,8 +3,6 @@ import { GaugeChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 echarts.use([GaugeChart, CanvasRenderer]);
 
-import { v4 as uuidv4 } from 'uuid/dist';
-
 export default class App {
     constructor() {
         this.names = ['s1', 's2', 's3', 's4', 's5'];        
@@ -20,7 +18,7 @@ export default class App {
     }
 
     start() {
-        this.eventSource = new EventSource(`register/${uuidv4()}`);
+        this.eventSource = new EventSource(`register/${crypto.randomUUID()}`);
         this.eventSource.addEventListener('message', this.onMessage.bind(this), false);
         this.eventSource.addEventListener('dto', m => console.log(m));
         this.eventSource.onerror = this.onError;
@@ -81,10 +79,8 @@ export default class App {
                 title: {
                     show: true,
                     offsetCenter: ['-100%', '-90%'],
-                    textStyle: {
-                        color: '#333',
-                        fontSize: 15
-                    }
+                    color: '#333',
+                    fontSize: 15
                 },
                 axisLine: {
                     lineStyle: {
@@ -95,22 +91,20 @@ export default class App {
                 axisTick: {
                     length: 11,
                     lineStyle: {
-                        color: 'auto'
+                        color: 'inherit'
                     }
                 },
                 splitLine: {
                     length: 15,
                     lineStyle: {
-                        color: 'auto'
+                        color: 'inherit'
                     }
                 },
                 detail: {
                     show: true,
                     offsetCenter: ['100%', '-100%'],
-                    textStyle: {
-                        color: 'auto',
-                        fontSize: 25
-                    }
+                    color: 'inherit',
+                    fontSize: 25
                 }
 
             }]
