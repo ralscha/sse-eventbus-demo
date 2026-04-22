@@ -10,6 +10,11 @@ tasks:
       - cmd: task --list
     silent: true
 
+  format:
+    desc: Apply Spring Java Format
+    cmds:
+      - '{{.MVNW}} -B -ntp spring-javaformat:apply'
+
   demo:
     desc: Run client and server in development mode
     deps:
