@@ -5,12 +5,12 @@ echarts.use([GaugeChart, CanvasRenderer]);
 
 export default class App {
     constructor() {
-        this.names = ['s1', 's2', 's3', 's4', 's5'];        
+        this.names = ['s1', 's2', 's3', 's4', 's5'];
         this.gauges = [];
 
         const threshold = [0.1, 0.2, 0.7, 0.5, 0.9];
 
-        for (let [index, name] of this.names.entries()) {
+        for (const [index, name] of this.names.entries()) {
             const chart = echarts.init(document.getElementById('chart' + (index + 1)));
             chart.setOption(this.getChartOption(name, threshold[index]));
             this.gauges.push(chart);
