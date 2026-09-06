@@ -1,5 +1,3 @@
-import { resolve } from 'node:path';
-
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -11,5 +9,9 @@ export default defineConfig({
                 target: 'http://localhost:8080'
             }
         }
+    },
+    build: {
+        outDir: '../src/main/resources/static',
+        emptyOutDir: true
     }
 });

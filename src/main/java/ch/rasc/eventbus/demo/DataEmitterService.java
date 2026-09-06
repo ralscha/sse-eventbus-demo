@@ -1,6 +1,7 @@
 package ch.rasc.eventbus.demo;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -11,15 +12,12 @@ import ch.rasc.sse.eventbus.SseEvent;
 @Service
 public class DataEmitterService {
 
-	public static record Dto(int i, String s) {
+	public record Dto(int i, String s) {
 	}
 
 	private final ApplicationEventPublisher eventPublisher;
 
-	// OR: private final ApplicationContext ctx;
-	// this bean implements the ApplicationEventPublisher interface
-
-	private final static Random random = new Random();
+	private final AtomicLong eventId = new AtomicLong();
 
 	public DataEmitterService(ApplicationEventPublisher eventPublisher) {
 		this.eventPublisher = eventPublisher;
@@ -27,16 +25,15 @@ public class DataEmitterService {
 
 	@Scheduled(initialDelay = 2000, fixedRate = 5_000)
 	public void sendData() {
-		StringBuilder sb = new StringBuilder("[");
-		for (int i = 0; i < 5; i++) {
-			sb.append(random.nextInt(31));
-			sb.append(",");
-		}
-		sb.replace(sb.length() - 1, sb.length(), "]");
-		this.eventPublisher.publishEvent(SseEvent.ofData(sb.toString()));
+		int[] values = ThreadLocalRandom.current().ints(5, 0, 31).toArray();
+		this.eventPublisher.publishEvent(SseEvent.builder().data(values).id(nextEventId()).build());
 
-		Dto dto = new Dto(10, "test");
-		this.eventPublisher.publishEvent(SseEvent.of("dto", dto));
+		this.eventPublisher
+			.publishEvent(SseEvent.builder().event("dto").data(new Dto(10, "test")).id(nextEventId()).build());
+	}
+
+	private String nextEventId() {
+		return Long.toString(this.eventId.incrementAndGet());
 	}
 
 }

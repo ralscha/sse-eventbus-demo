@@ -3,6 +3,8 @@ import { GaugeChart } from 'echarts/charts';
 import { CanvasRenderer } from 'echarts/renderers';
 echarts.use([GaugeChart, CanvasRenderer]);
 
+const CLIENT_ID_KEY = 'sse-eventbus-demo-client-id';
+
 export default class App {
     constructor() {
         this.names = ['s1', 's2', 's3', 's4', 's5'];
@@ -18,11 +20,23 @@ export default class App {
     }
 
     start() {
-        this.eventSource = new EventSource(`register/${crypto.randomUUID()}`);
+        const clientId = sessionStorage.getItem(CLIENT_ID_KEY) ?? crypto.randomUUID();
+        sessionStorage.setItem(CLIENT_ID_KEY, clientId);
+
+        this.eventSource = new EventSource(`/register/${clientId}`);
         this.eventSource.addEventListener('message', this.onMessage.bind(this), false);
-        this.eventSource.addEventListener('dto', m => console.log(m));
-        this.eventSource.onerror = this.onError;
-        this.eventSource.onopen = this.onOpen;
+        this.eventSource.addEventListener('dto', event => {
+            console.log('DTO event:', JSON.parse(event.data));
+        });
+        this.eventSource.onerror = () => this.setConnectionStatus('Reconnecting…');
+        this.eventSource.onopen = () => this.setConnectionStatus('Connected');
+
+        window.addEventListener('pagehide', () => this.stop(), { once: true });
+        window.addEventListener('resize', () => {
+            for (const gauge of this.gauges) {
+                gauge.resize();
+            }
+        });
     }
 
     stop() {
@@ -33,18 +47,21 @@ export default class App {
     }
 
     onMessage(response) {
-        const splitted = response.data.split('\n');
-        for (const line of splitted) {
-            this.handleResponse(JSON.parse(line));
+        try {
+            const values = JSON.parse(response.data);
+            if (!Array.isArray(values) || values.length !== this.gauges.length
+                    || !values.every(Number.isFinite)) {
+                throw new TypeError('Expected five numeric gauge values');
+            }
+            this.handleResponse(values);
+        }
+        catch (error) {
+            console.error('Ignoring invalid SSE payload', error);
         }
     }
 
-    onError() {
-        console.log("Error occurred");
-    }
-
-    onOpen() {
-        console.log("Connection to server opened");
+    setConnectionStatus(status) {
+        document.getElementById('connection-status').textContent = status;
     }
 
     handleResponse(data) {
@@ -73,7 +90,7 @@ export default class App {
                 type: 'gauge',
                 splitNumber: 3,
                 data: [{
-                    value: 16,
+                    value: 0,
                     name: name
                 }],
                 title: {

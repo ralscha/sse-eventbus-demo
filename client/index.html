@@ -6,6 +6,11 @@
   <title>sse-eventbus-demo with echarts</title>
 
   <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 40px;
+    }
+
     body div {
       padding: 5px;
       display: inline-block;
@@ -16,7 +21,8 @@
   </style>
 </head>
 
-<body style="padding: 40px">
+<body>
+  <p id="connection-status" role="status" aria-live="polite">Connecting…</p>
   <div id="chart1"></div>
   <div id="chart2"></div>
   <div id="chart3"></div>

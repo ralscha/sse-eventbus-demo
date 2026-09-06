@@ -35,6 +35,13 @@ tasks:
       - task: client-install
       - cmd: npm run build
 
+  package:
+    desc: Build an executable jar containing the frontend
+    deps:
+      - client-build
+    cmds:
+      - '{{.MVNW}} -B -ntp clean package'
+
   client-install:
     desc: Install frontend dependencies
     dir: client
@@ -44,5 +51,5 @@ tasks:
   server:
     desc: Run the backend in development mode on port 8080
     cmds:
-      - '{{.MVNW}} spring-boot:run -Dspring-boot.run.profiles=development'
+      - '{{.MVNW}} spring-boot:run'
 
